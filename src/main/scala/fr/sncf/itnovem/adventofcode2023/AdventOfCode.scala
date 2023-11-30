@@ -1,4 +1,4 @@
-package fr.xebia.adventofcode2023
+package fr.sncf.itnovem.adventofcode2023
 
 import scala.io.Source
 
