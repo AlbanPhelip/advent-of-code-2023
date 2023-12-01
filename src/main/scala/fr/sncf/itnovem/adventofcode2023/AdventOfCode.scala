@@ -9,7 +9,7 @@ trait AdventOfCode {
   def execute(): (Any, Any)
 
   val input: Array[String] = {
-    val file = Source.fromFile(getClass.getResource(s"../../../$fileName").getPath)
+    val file = Source.fromFile(getClass.getResource(s"../../../../$fileName").getPath)
     val input = file.getLines.toArray
     file.close()
     input
