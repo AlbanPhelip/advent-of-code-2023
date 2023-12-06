@@ -1,13 +1,11 @@
 package fr.sncf.itnovem.adventofcode2023
 
-import scala.util.Try
-
 object Day01 extends AdventOfCode {
   override def fileName: String = "aoc01.txt"
 
   override def execute(): (Any, Any) = {
     val star1 = input
-      .map(_.map(char => Try(char.toString.toInt)).filter(_.isSuccess).map(_.get))
+      .map(_.filter(_.isDigit).map(_.toString.toInt))
       .map(list => 10 * list.head + list.last)
       .sum
 
