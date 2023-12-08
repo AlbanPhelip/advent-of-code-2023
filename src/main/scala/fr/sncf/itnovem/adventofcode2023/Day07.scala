@@ -4,7 +4,7 @@ object Day07 extends AdventOfCode {
   override def fileName: String = "aoc07.txt"
 
   private def handType(cards: String): String = {
-    cards.toCharArray.groupBy(identity).view.mapValues(_.length).values.toList.sorted match {
+    cards.toCharArray.groupBy(identity).values.map(_.length).toList.sorted match {
       case List(5)          => "1 - Five of a kind"
       case List(1, 4)       => "2 - Four of a kind"
       case List(2, 3)       => "3 - Full house"
