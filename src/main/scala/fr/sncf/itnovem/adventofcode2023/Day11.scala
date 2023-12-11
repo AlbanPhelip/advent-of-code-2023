@@ -1,6 +1,6 @@
 package fr.sncf.itnovem.adventofcode2023
 
-import scala.math.abs
+import scala.math.{abs, max, min}
 
 object Day11 extends AdventOfCode {
   override def fileName: String = "aoc11.txt"
@@ -40,9 +40,9 @@ object Day11 extends AdventOfCode {
       .flatMap(point => galaxies.map((point, _)))
       .map { case (p1, p2) =>
         val additionalRows =
-          rowsWithoutHashtags.filter(r => r > scala.math.min(p1.y, p2.y) && r < scala.math.max(p1.y, p2.y))
+          rowsWithoutHashtags.filter(r => r > min(p1.y, p2.y) && r < max(p1.y, p2.y))
         val additionalColumns =
-          columnsWithoutHashtags.filter(c => c > scala.math.min(p1.x, p2.x) && c < scala.math.max(p1.x, p2.x))
+          columnsWithoutHashtags.filter(c => c > min(p1.x, p2.x) && c < max(p1.x, p2.x))
         val initialDistance = computeManhattanDistance(p1, p2)
 
         initialDistance + (numberOfLine - 1) * (additionalRows.length.toLong + additionalColumns.length.toLong)
